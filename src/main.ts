@@ -1,4 +1,4 @@
-enum ErrorCode {
+export enum ErrorCode {
     Timeout = "timeout_error",
 }
 
