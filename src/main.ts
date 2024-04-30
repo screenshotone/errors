@@ -3,19 +3,19 @@ enum ErrorCode {
 }
 
 interface APIError {
-    HTTPStatusCode: number;
-    ErrorCode: string;
-    ErrorDescription: string;
-    ErrorDocumentationLink: string;
+    httpStatusCode: number;
+    code: string;
+    description: string;
+    documentationUrl: string;
 }
 
 const allErrors: Record<ErrorCode, APIError> = {
     [ErrorCode.Timeout]: {
-        HTTPStatusCode: 500,
-        ErrorCode: "timeout_error",
-        ErrorDescription:
+        httpStatusCode: 500,
+        code: "timeout_error",
+        description:
             "The screenshot couldn't be taken within the specified timeout. Either the site doesn't respond quickly, or rendering takes longer than expected. Play with the `timeout` or the `navigation_timeout` options or reach the support for the investigation.",
-        ErrorDocumentationLink: "https://screenshotone.com/docs/errors/",
+        documentationUrl: "https://screenshotone.com/docs/errors/",
     },
 };
 
