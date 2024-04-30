@@ -22,8 +22,10 @@ const allErrors: Record<ErrorCode, APIError> = {
 };
 
 export function APIErrorByCode(code: string) {
-    if ((code as ErrorCode) in allErrors) {
-        return allErrors[code as ErrorCode];
+    for (const error of Object.values(allErrors)) {
+        if (error.code == code) {
+            return error;
+        }
     }
 
     return null;
