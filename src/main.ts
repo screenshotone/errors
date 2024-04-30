@@ -19,6 +19,14 @@ const Errors: Record<ErrorCode, APIError> = {
     },
 };
 
+export function APIErrorByCode(code: string) {
+    if ((code as ErrorCode) in Errors) {
+        return code as ErrorCode;
+    }
+
+    return null;
+}
+
 export function APIError(code: ErrorCode) {
     return Errors[code];
 }
