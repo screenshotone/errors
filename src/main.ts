@@ -1,5 +1,5 @@
 enum ErrorCode {
-    Timeout = "timeout",
+    Timeout = "timeout_error",
 }
 
 interface APIError {
