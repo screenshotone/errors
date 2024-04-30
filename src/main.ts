@@ -9,7 +9,7 @@ interface APIError {
     ErrorDocumentationLink: string;
 }
 
-const Errors: Record<ErrorCode, APIError> = {
+const allErrors: Record<ErrorCode, APIError> = {
     [ErrorCode.Timeout]: {
         HTTPStatusCode: 500,
         ErrorCode: "timeout_error",
@@ -20,13 +20,13 @@ const Errors: Record<ErrorCode, APIError> = {
 };
 
 export function APIErrorByCode(code: string) {
-    if ((code as ErrorCode) in Errors) {
-        return code as ErrorCode;
+    if ((code as ErrorCode) in allErrors) {
+        return allErrors[code as ErrorCode];
     }
 
     return null;
 }
 
 export function APIError(code: ErrorCode) {
-    return Errors[code];
+    return allErrors[code];
 }
