@@ -1,14 +1,14 @@
-# validations
+# errors
 
-[![Build](https://github.com/screenshotone/validations/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/screenshotone/validations/actions/workflows/build.yml)
-[![NPM package](https://img.shields.io/npm/v/screenshotone-validations.svg?branch=main)](https://www.npmjs.com/package/screenshotone-validations)
+[![Build](https://github.com/screenshotone/errors/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/screenshotone/errors/actions/workflows/build.yml)
+[![NPM package](https://img.shields.io/npm/v/screenshotone-errors.svg?branch=main)](https://www.npmjs.com/package/screenshotone-errors)
 
-A set of validation schemes for the [Screenshot API](https://screenshotone.com/) requests.
+Errors produced by the [Screenshot API](https://screenshotone.com/).
 
 ## Installation
 
 ```shell
-npm install screenshotone-validations --save
+npm install screenshotone-errors --save
 ```
 
 ## Build and publish (a manual for developers)
@@ -21,4 +21,4 @@ To build and publish the library:
 
 ## License
 
-`screenshotone/validations` is released under [the MIT license](LICENSE).
+`screenshotone/errors` is released under [the MIT license](LICENSE).
