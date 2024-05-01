@@ -17,7 +17,7 @@ const allErrors: Record<ErrorCode, APIError> = {
         code: "timeout_error",
         description:
             "The screenshot couldn't be taken within the specified timeout. Either the site doesn't respond quickly, or rendering takes longer than expected. Play with the `timeout` or the `navigation_timeout` options or reach the support for the investigation.",
-        documentationUrl: "https://screenshotone.com/docs/errors/",
+        documentationUrl: "https://screenshotone.com/docs/errors/timeout/",
     },
 };
 
