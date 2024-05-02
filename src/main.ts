@@ -1,5 +1,6 @@
 export enum ErrorCode {
     Timeout = "timeout_error",
+    StorageAccessDenied = "storage_access_denied",
 }
 
 interface APIError {
@@ -18,6 +19,15 @@ const allErrors: Record<ErrorCode, APIError> = {
         description:
             "The screenshot couldn't be taken within the specified timeout. Either the site doesn't respond quickly, or rendering takes longer than expected. Play with the `timeout` or the `navigation_timeout` options or reach the support for the investigation.",
         documentationUrl: "https://screenshotone.com/docs/errors/timeout/",
+    },
+    [ErrorCode.StorageAccessDenied]: {
+        httpStatusCode: 400,
+        title: "Storage Access Denied",
+        code: "storage_access_denied",
+        description:
+            "Failed to upload the screenshot to the storage since access was denied. Check the API keys you specify when using the storage integration.",
+        documentationUrl:
+            "https://screenshotone.com/docs/errors/storage-access-denied/",
     },
 };
 
