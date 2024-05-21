@@ -1,6 +1,7 @@
 export enum ErrorCode {
     Timeout = "timeout_error",
     StorageAccessDenied = "storage_access_denied",
+    ScriptTriggersRedirect = "script_triggers_redirect",
 }
 
 interface APIError {
@@ -28,6 +29,15 @@ const allErrors: Record<ErrorCode, APIError> = {
             "Failed to upload the screenshot to the storage since access was denied. Check the API keys you specify when using the storage integration.",
         documentationUrl:
             "https://screenshotone.com/docs/errors/storage-access-denied/",
+    },    
+    [ErrorCode.ScriptTriggersRedirect]: {
+        httpStatusCode: 400,
+        title: "Script Triggers Redirect",
+        code: "script_triggers_redirect",
+        description:
+            'The specified "scripts" option might trigger a redirect, please, specify the "scripts_wait_until" option. If you think it is a mistake, please, reach out at `support@screenshotone.com`.',
+        documentationUrl:
+            "https://screenshotone.com/docs/errors/script-triggers-redirect/",
     },
 };
 
