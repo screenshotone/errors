@@ -2,6 +2,7 @@ export enum ErrorCode {
     Timeout = "timeout_error",
     StorageAccessDenied = "storage_access_denied",
     ScriptTriggersRedirect = "script_triggers_redirect",
+    InternalApplicationError = "internal_application_error",
 }
 
 interface APIError {
@@ -13,6 +14,15 @@ interface APIError {
 }
 
 const allErrors: Record<ErrorCode, APIError> = {
+    [ErrorCode.InternalApplicationError]: {
+        httpStatusCode: 500,
+        title: "Internal Application Error",
+        code: "internal_application_error",
+        description:
+            "The API failed to serve your request. You can try replay the request. If the error is repeated after a few retries, please, reach out at `support@screenshotone.com.`",
+        documentationUrl:
+            "https://screenshotone.com/docs/errors/internal-application-error/",
+    },
     [ErrorCode.Timeout]: {
         httpStatusCode: 500,
         title: "Timeout",
@@ -29,7 +39,7 @@ const allErrors: Record<ErrorCode, APIError> = {
             "Failed to upload the screenshot to the storage since access was denied. Check the API keys you specify when using the storage integration.",
         documentationUrl:
             "https://screenshotone.com/docs/errors/storage-access-denied/",
-    },    
+    },
     [ErrorCode.ScriptTriggersRedirect]: {
         httpStatusCode: 400,
         title: "Script Triggers Redirect",
