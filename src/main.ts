@@ -3,6 +3,7 @@ export enum ErrorCode {
     StorageAccessDenied = "storage_access_denied",
     ScriptTriggersRedirect = "script_triggers_redirect",
     InternalApplicationError = "internal_application_error",
+    UsageQuotaExceeded = "screenshots_limit_reached",
 }
 
 interface APIError {
@@ -14,6 +15,15 @@ interface APIError {
 }
 
 const allErrors: Record<ErrorCode, APIError> = {
+    [ErrorCode.UsageQuotaExceeded]: {
+        httpStatusCode: 400,
+        title: "Usage Quota Exceeded",
+        code: "screenshots_limit_reached",
+        description:
+            "The usage quota has been exceeded. Please, either upgrade to a plan with more quota or change the maximum allowed limit (if possible) in the ScreenshotOne dashboard. If it is a mistake, please, reach out at `support@screenshotone.com.`",
+        documentationUrl:
+            "https://screenshotone.com/docs/errors/usage-quota-exceeded/",
+    },
     [ErrorCode.InternalApplicationError]: {
         httpStatusCode: 500,
         title: "Internal Application Error",
