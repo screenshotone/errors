@@ -4,6 +4,7 @@ export enum ErrorCode {
     ScriptTriggersRedirect = "script_triggers_redirect",
     InternalApplicationError = "internal_application_error",
     UsageQuotaExceeded = "screenshots_limit_reached",
+    RequestAborted = "request_aborted",
 }
 
 interface APIError {
@@ -58,6 +59,15 @@ const allErrors: Record<ErrorCode, APIError> = {
             'The specified "scripts" option might trigger a redirect, please, specify the "scripts_wait_until" option. If you think it is a mistake, please, reach out at `support@screenshotone.com`.',
         documentationUrl:
             "https://screenshotone.com/docs/errors/script-triggers-redirect/",
+    },
+    [ErrorCode.RequestAborted]: {
+        httpStatusCode: 500,
+        title: "Request Aborted",
+        code: "request_aborted",
+        description:
+            "The request was aborted either by the user or the intermediate proxies and can't be fulfilled. If the error persists, please, reach out to `support@screenshotone.com`.",
+        documentationUrl:
+            "https://screenshotone.com/docs/errors/request-aborted/",
     },
 };
 
