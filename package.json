@@ -1,7 +1,7 @@
 {
   "name": "screenshotone-errors",
   "homepage": "https://screenshotone.com",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Errors produced by the ScreenshotOne API.",
   "repository": {
     "type": "git",
