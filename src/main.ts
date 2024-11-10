@@ -19,6 +19,7 @@ export enum ErrorCode {
     StorageReturnedTransientError = "storage_returned_transient_error",
     ContentContainsSpecifiedString = "content_contains_specified_string",
     TemporaryUnavailable = "temporary_unavailable",
+    ResultingImageTooLarge = "resulting_image_too_large",
 }
 
 interface APIError {
@@ -38,6 +39,15 @@ const allErrors: Record<ErrorCode, APIError> = {
             "If `selector` is specified and `error_on_selector_not_found`=true, the error will be returned if the element by selector is not visible or it took more than timeout seconds to render it, but not more than 30 seconds.",
         documentationUrl:
             "https://screenshotone.com/docs/errors/selector-not-found/",
+    },
+    [ErrorCode.ResultingImageTooLarge]: {
+        httpStatusCode: 400,
+        title: "Resulting Image Too Large",
+        code: "resulting_image_too_large",
+        description:
+            "The resulting image is too large for the specified format.",
+        documentationUrl:
+            "https://screenshotone.com/docs/errors/resulting-image-too-large/",
     },
     [ErrorCode.NameNotResolved]: {
         httpStatusCode: 400,
