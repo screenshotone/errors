@@ -36,7 +36,7 @@ const allErrors: Record<ErrorCode, APIError> = {
         title: "Selector Not Found",
         code: "selector_not_found",
         description:
-            "If `selector` is specified and `error_on_selector_not_found`=true, the error will be returned if the element by selector is not visible or it took more than timeout seconds to render it, but not more than 30 seconds.",
+            "If `selector` is specified and `error_on_selector_not_found`=true, or `click` is specified and `error_on_click_selector_not_found`=true, the error will be returned if the element by selector is not visible or it took more than timeout seconds to render it, but not more than 30 seconds.",
         documentationUrl:
             "https://screenshotone.com/docs/errors/selector-not-found/",
     },
