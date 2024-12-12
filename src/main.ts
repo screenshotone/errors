@@ -20,6 +20,7 @@ export enum ErrorCode {
     ContentContainsSpecifiedString = "content_contains_specified_string",
     TemporaryUnavailable = "temporary_unavailable",
     ResultingImageTooLarge = "resulting_image_too_large",
+    InvalidCookieParameter = "invalid_cookie_parameter",
 }
 
 interface APIError {
@@ -31,6 +32,15 @@ interface APIError {
 }
 
 const allErrors: Record<ErrorCode, APIError> = {
+    [ErrorCode.InvalidCookieParameter]: {
+        httpStatusCode: 400,
+        title: "Invalid Cookie Parameter",
+        code: "invalid_cookie_parameter",
+        description:
+            "The `cookies` parameters you provided are invalid. Please, consider providing different values and adhere to the format specified in the ScreenshotOne documentation.",
+        documentationUrl:
+            "https://screenshotone.com/docs/errors/invalid-cookie-parameter/",
+    },
     [ErrorCode.SelectorNotFound]: {
         httpStatusCode: 400,
         title: "Selector Not Found",
