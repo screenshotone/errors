@@ -18,6 +18,7 @@ export enum ErrorCode {
     HostReturnedError = "host_returned_error",
     StorageReturnedTransientError = "storage_returned_transient_error",
     ContentContainsSpecifiedString = "content_contains_specified_string",
+    ContentMissingSpecifiedString = "content_missing_specified_string",
     TemporaryUnavailable = "temporary_unavailable",
     ResultingImageTooLarge = "resulting_image_too_large",
     InvalidCookieParameter = "invalid_cookie_parameter",
@@ -103,6 +104,15 @@ const allErrors: Record<ErrorCode, APIError> = {
             "If the host doesn't respond successfully within the range of 200-299 status codes, the API won't take a screenshot. You can force the API to take a screenshot of the error page by specifying `ignore_host_errors`=true. You can get the returned status code from the site by reading the `returned_status_code` field.",
         documentationUrl:
             "https://screenshotone.com/docs/errors/host-returned-error/",
+    },
+    [ErrorCode.ContentMissingSpecifiedString]: {
+        httpStatusCode: 500,
+        title: "Content Missing Specified String",
+        code: "content_missing_specified_string",
+        description:
+            "The page content is missing the specified string by the `fail_if_content_missing` option. If it seems to be a mistake or not what you expected, please, reach out to `support@screenshotone.com` as quickly as possible, and will assist and try to resolve your problem.",
+        documentationUrl:
+            "https://screenshotone.com/docs/errors/content-missing-specified-string/",
     },
     [ErrorCode.ContentContainsSpecifiedString]: {
         httpStatusCode: 500,
