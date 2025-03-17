@@ -22,6 +22,7 @@ export enum ErrorCode {
     TemporaryUnavailable = "temporary_unavailable",
     ResultingImageTooLarge = "resulting_image_too_large",
     InvalidCookieParameter = "invalid_cookie_parameter",
+    MatchedFailedRequest = "matched_failed_request",
 }
 
 interface APIError {
@@ -33,6 +34,15 @@ interface APIError {
 }
 
 const allErrors: Record<ErrorCode, APIError> = {
+    [ErrorCode.MatchedFailedRequest]: {
+        httpStatusCode: 500,
+        title: "Matched Failed Request",
+        code: "matched_failed_request",
+        description:
+            "A request matched by the specified pattern by the `fail_if_request_failed` option has been failed. If it seems to be a mistake or not what you expected, please, reach out to `support@screenshotone.com` as quickly as possible, and we will assist and try to resolve your problem.",
+        documentationUrl:
+            "https://screenshotone.com/docs/errors/matched-failed-request/",
+    },
     [ErrorCode.InvalidCookieParameter]: {
         httpStatusCode: 400,
         title: "Invalid Cookie Parameter",
