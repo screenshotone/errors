@@ -22,6 +22,7 @@ export enum ErrorCode {
     TemporaryUnavailable = "temporary_unavailable",
     ResultingImageTooLarge = "resulting_image_too_large",
     InvalidCookieParameter = "invalid_cookie_parameter",
+    InvalidHeaderParameter = "invalid_header_parameter",
     MatchedFailedRequest = "matched_failed_request",
 }
 
@@ -51,6 +52,15 @@ const allErrors: Record<ErrorCode, APIError> = {
             "The `cookies` parameters you provided are invalid. Please, consider providing different values and adhere to the format specified in the ScreenshotOne documentation.",
         documentationUrl:
             "https://screenshotone.com/docs/errors/invalid-cookie-parameter/",
+    },
+    [ErrorCode.InvalidHeaderParameter]: {
+        httpStatusCode: 400,
+        title: "Invalid Header Parameter",
+        code: "invalid_header_parameter",
+        description:
+            "The `headers` parameters you provided are invalid. Please, consider providing different values and adhere to the format specified in the ScreenshotOne documentation.",
+        documentationUrl:
+            "https://screenshotone.com/docs/errors/invalid-header-parameter/",
     },
     [ErrorCode.SelectorNotFound]: {
         httpStatusCode: 400,
