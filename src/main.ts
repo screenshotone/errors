@@ -24,6 +24,7 @@ export enum ErrorCode {
     InvalidCookieParameter = "invalid_cookie_parameter",
     InvalidHeaderParameter = "invalid_header_parameter",
     MatchedFailedRequest = "matched_failed_request",
+    RequestBodyTooLarge = "request_body_too_large",
 }
 
 interface APIError {
@@ -35,6 +36,15 @@ interface APIError {
 }
 
 const allErrors: Record<ErrorCode, APIError> = {
+    [ErrorCode.RequestBodyTooLarge]: {
+        httpStatusCode: 413,
+        title: "Request Body Too Large",
+        code: "request_body_too_large",
+        description:
+            "The request body is too large. Please, reduce the size of the request body or reach out to `support@screenshotone.com` for assistance.",
+        documentationUrl:
+            "https://screenshotone.com/docs/errors/request-body-too-large/",
+    },
     [ErrorCode.MatchedFailedRequest]: {
         httpStatusCode: 500,
         title: "Matched Failed Request",
