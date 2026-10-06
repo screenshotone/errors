@@ -25,6 +25,7 @@ export enum ErrorCode {
     InvalidHeaderParameter = "invalid_header_parameter",
     MatchedFailedRequest = "matched_failed_request",
     RequestBodyTooLarge = "request_body_too_large",
+    StorageConfigurationRequired = "storage_configuration_is_required",
 }
 
 interface APIError {
@@ -36,6 +37,15 @@ interface APIError {
 }
 
 const allErrors: Record<ErrorCode, APIError> = {
+    [ErrorCode.StorageConfigurationRequired]: {
+        httpStatusCode: 400,
+        title: "Storage Configuration Required",
+        code: "storage_configuration_is_required",
+        description:
+            "You set `store=true`, but no S3-compatible storage is configured. Configure storage in the dashboard or pass the `storage_*` options with the request.",
+        documentationUrl:
+            "https://screenshotone.com/docs/errors/storage-configuration-required/",
+    },
     [ErrorCode.RequestBodyTooLarge]: {
         httpStatusCode: 413,
         title: "Request Body Too Large",
