@@ -14,6 +14,7 @@ export enum ErrorCode {
     SelectorNotFound = "selector_not_found",
     NameNotResolved = "name_not_resolved",
     NetworkError = "network_error",
+    SecureConnectionFailed = "secure_connection_failed",
     InvalidStorageConfiguration = "invalid_storage_configuration",
     HostReturnedError = "host_returned_error",
     StorageReturnedTransientError = "storage_returned_transient_error",
@@ -117,6 +118,15 @@ const allErrors: Record<ErrorCode, APIError> = {
             "The error happens when the API can't connect to the provided URL. It might mean that the site blocks the API or is temporarily unavailable. Generally, you can safely retry to take a screenshot.",
         documentationUrl:
             "https://screenshotone.com/docs/errors/network-error/",
+    },
+    [ErrorCode.SecureConnectionFailed]: {
+        httpStatusCode: 500,
+        title: "Secure Connection Failed",
+        code: "secure_connection_failed",
+        description:
+            "The API could not establish a secure HTTPS connection to the target website. Check the website's TLS configuration, or try changing the `url` parameter from `https://` to `http://` if the public page works over HTTP. Do not use HTTP with credentials or sensitive data.",
+        documentationUrl:
+            "https://screenshotone.com/docs/errors/secure-connection-failed/",
     },
     [ErrorCode.InvalidStorageConfiguration]: {
         httpStatusCode: 400,
