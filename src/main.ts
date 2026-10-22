@@ -88,7 +88,7 @@ const allErrors: Record<ErrorCode, APIError> = {
         title: "Selector Not Found",
         code: "selector_not_found",
         description:
-            "If `selector` is specified and `error_on_selector_not_found`=true, or `click` is specified and `error_on_click_selector_not_found`=true, the error will be returned if the element by selector is not visible or it took more than timeout seconds to render it, but not more than 30 seconds.",
+            "If `selector` is specified and `error_on_selector_not_found`=true, or `click` is specified and `error_on_click_selector_not_found`=true, or `hover` is specified and `error_on_hover_selector_not_found`=true, the error will be returned if the element by selector is not visible or it took more than timeout seconds to render it, but not more than 30 seconds. With `selector`, the error is also returned regardless of `error_on_selector_not_found` when the element is found but can't be rendered: it has no size, isn't visible, or the page keeps replacing it.",
         documentationUrl:
             "https://screenshotone.com/docs/errors/selector-not-found/",
     },
@@ -276,7 +276,7 @@ const allErrors: Record<ErrorCode, APIError> = {
         title: "Script Triggers Redirect",
         code: "script_triggers_redirect",
         description:
-            'The specified "scripts" option might trigger a redirect, please, specify the "scripts_wait_until" option. If you think it is a mistake, please, reach out at `support@screenshotone.com`.',
+            'The specified "scripts" option triggers or might trigger a redirect (it loads another page, e.g. by changing `location.href`, clicking a link or submitting a form), please, specify the "scripts_wait_until" option. If you think it is a mistake, please, reach out at `support@screenshotone.com`.',
         documentationUrl:
             "https://screenshotone.com/docs/errors/script-triggers-redirect/",
     },
