@@ -17,6 +17,7 @@ export enum ErrorCode {
     SecureConnectionFailed = "secure_connection_failed",
     InvalidStorageConfiguration = "invalid_storage_configuration",
     HostReturnedError = "host_returned_error",
+    HostRequiresAuthentication = "host_requires_authentication",
     StorageReturnedTransientError = "storage_returned_transient_error",
     ContentContainsSpecifiedString = "content_contains_specified_string",
     ContentMissingSpecifiedString = "content_missing_specified_string",
@@ -118,6 +119,15 @@ const allErrors: Record<ErrorCode, APIError> = {
             "The error happens when the API can't connect to the provided URL. It might mean that the site blocks the API or is temporarily unavailable. Generally, you can safely retry to take a screenshot.",
         documentationUrl:
             "https://screenshotone.com/docs/errors/network-error/",
+    },
+    [ErrorCode.HostRequiresAuthentication]: {
+        httpStatusCode: 400,
+        title: "Host Requires Authentication",
+        code: "host_requires_authentication",
+        description:
+            "The site requires authentication, such as a username and password, and the page can't be opened without valid credentials. Pass them in the `authorization` option, or remove the protection for the screenshot.",
+        documentationUrl:
+            "https://screenshotone.com/docs/errors/host-requires-authentication/",
     },
     [ErrorCode.SecureConnectionFailed]: {
         httpStatusCode: 500,
